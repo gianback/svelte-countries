@@ -1,21 +1,25 @@
 <script>
+	import { theme } from '../store/theme';
+
 	import Moon from "$lib/icons/Moon.svelte";
 	import Sun from "$lib/icons/Sun.svelte";
-	import {theme} from "../store/theme"
+	function toggleTheme() {
+		console.log('xd')
+		const theme = localStorage.getItem('theme')
+		document.querySelector('html')?.classList.add('dark');
+		
 
-	$: currentTheme = $theme === 'light' ? 'color: red' : 'color: blue'
-
+	}
 </script>
-<header class="flex items-center justify-between">
-	
-	<h1 style={currentTheme}>
+<header class="bg-[#fafafa] text-[#111517] dark:text-white  dark:bg-[#2b3945] py-12 px-4 flex items-center justify-between">
+	<h1>
 		Where in the world?
 	</h1>
-	<button class="flex items-center">
-		{#if $theme === 'light' }
-		Light mode <Sun />
+	<button class="flex items-center gap-4" on:click={toggleTheme}>
+		{#if $theme.current === 'light' }
+		<Sun />Light mode 
 		{:else}
-		Dark mode<Moon />
+		<Moon />Dark mode
 		{/if}
 	</button>
 </header>

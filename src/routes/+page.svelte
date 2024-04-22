@@ -1,13 +1,4 @@
-<script>
-	import { theme } from "../store/theme";
 
-	function toggleTheme(){
-		theme.set($theme === "light" ? "dark" : "light")
-	}
-	
-
-
-</script>
 
 <svelte:head>
 	<title>Home</title>
@@ -15,16 +6,8 @@
 </svelte:head>
 
 <section>
-<h1 class="text-red-500">
-	home
-</h1>
-<button on:click={toggleTheme}>
-	{#if $theme === "dark"}
-		Dark mode
-	{:else}	
-		Light mode
-	{/if}
-</button>
+	<h1 class="text-red-500">home</h1>
+	<p>home</p>
 </section>
 
 <style>
